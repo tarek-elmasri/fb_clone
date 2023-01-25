@@ -15,8 +15,9 @@ import {
 } from "@heroicons/react/24/outline";
 import fbLogo from "../assets/images/fb-logo.png";
 import { HeaderIcon } from "@/components";
-
+import { signOut, useSession } from "next-auth/react";
 const Header = () => {
+  const { data: session } = useSession();
   return (
     <div className="sticky top-0 z-50 bg-white flex items-center p-2 lg:px-5 shadow-md">
       <div className="flex items-center">
@@ -47,7 +48,15 @@ const Header = () => {
       </div>
 
       <div className="flex items-center sm:space-x-2 justify-end">
-        {/* <Image src={} /> */}
+        <Image
+          src={session.user.image}
+          alt="Signout"
+          onClick={signOut}
+          width={40}
+          height={40}
+          fixed="true"
+          className="rounded-full cursor-pointer"
+        />
         <p className="font-semibold whitespace-nowrap pr-3">Tarek Elmasri</p>
         <RectangleGroupIcon className="icon" />
         <ChatBubbleOvalLeftEllipsisIcon className="icon" />
