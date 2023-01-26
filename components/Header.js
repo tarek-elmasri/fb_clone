@@ -49,7 +49,7 @@ const Header = () => {
 
       <div className="flex items-center sm:space-x-2 justify-end">
         <Image
-          src={session.user.image}
+          src={session.user?.image}
           alt="Signout"
           onClick={signOut}
           width={40}
@@ -57,7 +57,9 @@ const Header = () => {
           fixed="true"
           className="rounded-full cursor-pointer"
         />
-        <p className="font-semibold whitespace-nowrap pr-3">Tarek Elmasri</p>
+        <p className="font-semibold whitespace-nowrap pr-3">
+          {session.user?.name}
+        </p>
         <RectangleGroupIcon className="icon" />
         <ChatBubbleOvalLeftEllipsisIcon className="icon" />
         <BellIcon className="icon" />
