@@ -1,4 +1,4 @@
-import { Header, Login } from "@/components";
+import { Header, Login, Sidebar } from "@/components";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
 
@@ -13,8 +13,8 @@ export default function Home({ session }) {
       </Head>
 
       <Header />
-      <main>
-        {/* Sidebar */}
+      <main className="flex">
+        <Sidebar />
         {/* Feed */}
         {/* Widget */}
       </main>
